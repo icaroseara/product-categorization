@@ -55,10 +55,16 @@ Project Organization
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
+## Prerequisites
+- [Python 3.6](https://www.python.org/downloads/release/python-360/)
+- [Virtualenv](https://virtualenv.pypa.io/en/stable/)
 
-## Crawl public product's info from an e-commerce:
+## Crawl public product's info from an e-commerce
 The spider script collect product info from Petlove's site.
 After spider script has finished, a `dataset.csv` file will be generated to `data/external` directory.
 ```
   make crawl_petlove
 ```
+
+## Datasets
+- A public dataset of `1980 products` with `88 categories` extracted from `Petlove`, each product has `name`, `description` and `category` - https://s3.amazonaws.com/product-categorization/dataset.csv
