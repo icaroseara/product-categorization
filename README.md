@@ -56,9 +56,9 @@ Project Organization
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
 
-## Crawl public product data from ecommerce site:
+## Crawl public product's info from an e-commerce:
 The spider script collect product info from Petlove's site.
-After spider script has happened, a `dataset.csv` file will be generated to data/external directory.
+After spider script has finished, a `dataset.csv` file will be generated to `data/external` directory.
 ```
   make crawl_petlove
 ```
