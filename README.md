@@ -31,6 +31,11 @@ Project Organization
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     │
+    ├── scraping
+    │   └── scraping
+    |       └── spiders    <- Crawlers scripts.
+    |
+    |
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
@@ -49,3 +54,11 @@ Project Organization
     │       └── visualize.py
     │
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
+
+
+## Crawl public product data from ecommerce site:
+The spider script collect product info from Petlove's site.
+After spider script has happened, a `dataset.csv` file will be generated to data/external directory.
+```
+  make crawl_petlove
+```

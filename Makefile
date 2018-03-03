@@ -22,7 +22,11 @@ endif
 
 ## Install Python Dependencies
 requirements: test_environment
+ifeq (3,$(findstring 3,$(PYTHON_INTERPRETER)))
+	pip3 install -r requirements.txt
+else
 	pip install -r requirements.txt
+endif
 
 ## Make Dataset
 data: requirements
@@ -51,6 +55,10 @@ ifeq (default,$(PROFILE))
 else
 	aws s3 sync s3://$(BUCKET)/data/ data/ --profile $(PROFILE)
 endif
+
+## Crawl data from Petlove site
+crawl_petlove: requirements
+	scrapy crawl petlove -t csv -o data/external/dataset.csv  --loglevel=INFO
 
 ## Set up python interpreter environment
 create_environment:
