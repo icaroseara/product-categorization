@@ -25,7 +25,8 @@ class PetloveSpider(scrapy.Spider):
 
         name = extract_with_css('h1::text')
         description = name.join(response.css('div.tab-details::text').extract())
-        categories = response.xpath('//*[@id="product"]/div/div/div[1]/div[1]/ul/li[*]/a/span/text()')
+        path = '//*[@id="product"]/div/div/div[1]/div[1]/ul/li[*]/a/span/text()'
+        categories = response.xpath(path)
         category = ','.join(categories[:-1].extract())
 
         yield dict(name=name, description=description, category=category)
