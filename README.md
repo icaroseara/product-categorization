@@ -53,17 +53,22 @@ Project Organization
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
     │
+    ├── tests              <- Automated tests
     └── tox.ini            <- tox file with settings for running tox; see tox.testrun.org
 
-## Prerequisites
-- [Python 3.6](https://www.python.org/downloads/release/python-360/)
-- [Virtualenv](https://virtualenv.pypa.io/en/stable/)
+## Prerequisite
+- [Docker(Compose)](https://docs.docker.com)
+
+## Build docker image
+```sh
+docker-compose build
+```
 
 ## Crawl public product's info from an e-commerce
 The spider script collect product info from Petlove's site.
 After spider script has finished, a `dataset.csv` file will be generated to `data/external` directory.
 ```
-  make crawl_petlove
+  docker-compose run web make crawl_petlove
 ```
 
 ## Datasets

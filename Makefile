@@ -5,7 +5,7 @@
 #################################################################################
 
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-BUCKET = [OPTIONAL] your-bucket-for-syncing-data (do not include 's3://')
+BUCKET = product-categorization
 PROFILE = default
 PROJECT_NAME = product-categorization
 PYTHON_INTERPRETER = python3
@@ -58,7 +58,7 @@ endif
 
 ## Crawl data from Petlove site
 crawl_petlove: requirements
-	scrapy crawl petlove -t csv -o data/external/dataset.csv  --loglevel=INFO
+	scrapy crawl petlove -t csv -o data/external/dataset.csv
 
 ## Set up python interpreter environment
 create_environment:

@@ -8,7 +8,7 @@ class PetloveSpider(scrapy.Spider):
 
     def generate_urls(self, n_pages=100):
         for p in range(1, n_pages):
-            yield f"{self.base_url}?page={p}"
+            yield '{}?page={}'.format(self.base_url, p)
 
     def start_requests(self):
         urls = self.generate_urls()
