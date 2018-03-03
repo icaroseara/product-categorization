@@ -64,6 +64,11 @@ Project Organization
 docker-compose build
 ```
 
+## Running specs
+```sh
+docker-compose run web make test
+```
+
 ## Crawl public product's info from an e-commerce
 The spider script collect product info from Petlove's site.
 After spider script has finished, a `dataset.csv` file will be generated to `data/external` directory.

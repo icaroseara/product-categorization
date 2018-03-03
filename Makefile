@@ -56,6 +56,10 @@ else
 	aws s3 sync s3://$(BUCKET)/data/ data/ --profile $(PROFILE)
 endif
 
+## Run the test suite
+test:
+	pytest --cov=product-categorization tests/
+
 ## Crawl data from Petlove site
 crawl_petlove: requirements
 	scrapy crawl petlove -t csv -o data/external/dataset.csv
