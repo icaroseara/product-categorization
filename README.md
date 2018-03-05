@@ -94,5 +94,11 @@ Expected response:
 }
 ```
 
+## Access Jupyter notebook
+```
+docker run -it -v $PWD:/opt/nb -p 8888:8888 felixleung/auto-sklearn \
+/bin/bash -c "mkdir -p /opt/nb && jupyter notebook --notebook-dir=/opt/nb --ip='0.0.0.0' --port=8888 --no-browser --allow-root"
+```
+
 ## Datasets
 - A public dataset of `1980 products` with `88 categories` extracted from `Petlove`, each product has `name`, `description` and `category` - https://s3.amazonaws.com/product-categorization/dataset.csv
