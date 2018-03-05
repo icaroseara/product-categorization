@@ -20,13 +20,11 @@ class PetloveSpider(scrapy.Spider):
             yield response.follow(product_url, self.parse_product)
 
     def parse_product(self, response):
-        def extract_with_css(query):
-            return response.css(query).extract_first()
-
-        name = extract_with_css('h1::text')
+        name = response.css('h1::text').extract_first()
         description = name.join(response.css('div.tab-details::text').extract())
-        path = '//*[@id="product"]/div/div/div[1]/div[1]/ul/li[*]/a/span/text()'
-        categories = response.xpath(path)
+        categories = response.xpath(
+            '//*[@id="product"]/div/div/div[1]/div[1]/ul/li[*]/a/span/text()'
+        )
         category = ','.join(categories[:-1].extract())
 
         yield dict(name=name, description=description, category=category)
