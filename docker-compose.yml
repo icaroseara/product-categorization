@@ -3,6 +3,8 @@ services:
   web:
     build: .
     volumes:
-      - .:/app
+      - .:/code
+    ports:
+      - "5000:5000"
     stdin_open: true
     tty: true

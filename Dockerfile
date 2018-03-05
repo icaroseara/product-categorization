@@ -5,4 +5,4 @@ WORKDIR /app
 
 RUN make requirements
 
-CMD ["bin/bash"]
+CMD ["make", "serve"]

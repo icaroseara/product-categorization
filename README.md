@@ -76,5 +76,23 @@ After spider script has finished, a `dataset.csv` file will be generated to `dat
   docker-compose run web make crawl_petlove
 ```
 
+## Make a prediction
+Run docker container
+```sh
+docker-compose up -d
+```
+Make HTTP request using curl:
+```sh
+curl -d '{"name": "Blusão Bichinho Chic Capuz Marrom","description": "Blusão Blusão Bichinho Chic Capuz Marrom Capuz, é uma Linda peça feito em soft brush, super macio e quentinho. Possui cordão para regulagem no pescoço e lindo bordado exclusiva Bichinho Chic."}' -H "Content-Type: application/json" -X POST http://localhost:5000/api/predict
+```
+Expected response:
+```json
+{
+  "prediction": {
+    "category": "Cachorro/Roupas e Acessórios/Roupinhas de Inverno"
+  }
+}
+```
+
 ## Datasets
 - A public dataset of `1980 products` with `88 categories` extracted from `Petlove`, each product has `name`, `description` and `category` - https://s3.amazonaws.com/product-categorization/dataset.csv

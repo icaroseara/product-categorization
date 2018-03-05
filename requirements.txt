@@ -5,7 +5,10 @@ awscli
 auto-sklearn
 flake8
 flask==0.12.2
+flask-inputs
 ipdb==0.11
+jsonschema
+wtforms
 python-dotenv>=0.5.1
 Scrapy==1.5.0
 stop_words

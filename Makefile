@@ -60,6 +60,10 @@ endif
 test:
 	pytest --cov=product-categorization tests/
 
+## Run application
+serve:
+	python3 -m src.api.app
+
 ## Crawl data from Petlove site
 crawl_petlove: requirements
 	scrapy crawl petlove -t csv -o data/external/dataset.csv
