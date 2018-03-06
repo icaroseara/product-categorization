@@ -15,7 +15,7 @@ def predict():
         return jsonify({'message': 'No input data provided'}), 400
     product = ProductSchema().load(json_data)
     if product.errors:
-        return jsonify(validation.errors), 422
+        return jsonify(product.errors), 422
     category = 'Cachorro, Rações, Ração Seca'
     return jsonify({'prediction': {'category': category}})
 
