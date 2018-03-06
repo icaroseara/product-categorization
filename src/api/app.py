@@ -7,19 +7,16 @@ from src.api.schemas.product_schema import ProductSchema
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
-product_schema = ProductSchema()
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
     json_data = request.get_json()
     if not json_data:
         return jsonify({'message': 'No input data provided'}), 400
-    try:
-        product = product_schema.load(json_data)
-    except ValidationError as err:
-        return jsonify(err.messages), 422
-
-    category = 'Cachorro/Roupas e Acessórios/Roupinhas de Inverno'
+    product = ProductSchema().load(json_data)
+    if product.errors:
+        return jsonify(validation.errors), 422
+    category = 'Cachorro, Rações, Ração Seca'
     return jsonify({'prediction': {'category': category}})
 
 if __name__ == '__main__':

@@ -83,13 +83,13 @@ docker-compose up -d
 ```
 Make HTTP request using curl:
 ```sh
-curl -d '{"name": "Blusão Bichinho Chic Capuz Marrom","description": "Blusão Blusão Bichinho Chic Capuz Marrom Capuz, é uma Linda peça feito em soft brush, super macio e quentinho. Possui cordão para regulagem no pescoço e lindo bordado exclusiva Bichinho Chic."}' -H "Content-Type: application/json" -X POST http://localhost:5000/api/predict
+curl -d '{"name": "Ração Premier Pet Formula Cães Adultos Raças Pequenas","description": "Indicada para cães adultos de raça pequena, Ração Sabor Frango, Contem apenas ingredientes nobres e selecionados sob rigoroso controle de qualidade, Pelagem bonita e saudável, rico em acido graxo essenciais, Omega 3 e Omega 6, Ajuda no equilibrio intestinal, combinação de ingredientes de alta digestibilidade, fibras alimentares e prebioticos, Enriquecido com vitaminas e minerais que proporcional maior saúde e vitalidade"}' -H "Content-Type: application/json" -X POST http://localhost:5000/api/predict
 ```
 Expected response:
 ```json
 {
   "prediction": {
-    "category": "Cachorro/Roupas e Acessórios/Roupinhas de Inverno"
+    "category": "Cachorro, Rações, Ração Seca"
   }
 }
 ```
