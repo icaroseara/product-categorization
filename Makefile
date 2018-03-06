@@ -58,7 +58,7 @@ endif
 
 ## Run the test suite
 test:
-	pytest --cov=product-categorization tests/
+	ENV=test pytest -s
 
 ## Run application
 serve:
